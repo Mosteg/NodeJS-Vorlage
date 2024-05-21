@@ -2,8 +2,9 @@ const path = require('path');
 
 module.exports = {
     entry: './src/index.js',
+    // watch: true,
     output: {
-        path: path.resolve(__dirname, 'dist/assets'),
+        path: path.resolve(__dirname, 'dist'),
         publicPath: '/assets/',
         filename: 'bundle.js'
     },
@@ -25,6 +26,10 @@ module.exports = {
                     presets: ['@babel/preset-env']
                 }
             }
+        },
+        {
+            test: /\.css$/,
+            use: ['style-loader', 'css-loader']
         }]
     }
 };
